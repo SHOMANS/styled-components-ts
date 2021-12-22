@@ -12,7 +12,7 @@ export const StyledButton = styled.button.attrs((props) => ({
   background: ${(props) => props.theme.backgroundColors.primary};
   color: ${(props) => props.theme.colors.secondary};
   margin: 20px;
-  opacity: 0.9;
+  /* opacity: 0.9; */
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
