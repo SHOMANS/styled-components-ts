@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AutoComplete from "./Components/AutoComplete";
+import { Button, OutlindedButton } from "./Components/Button";
+import Modal from "./Components/Modal";
 
 function App() {
+  const [inputChange, setInputChange] = useState<string>("");
+  const [openModal, setOpenModal] = useState<boolean>(false);
+
+  const handleChange = (text: string) => {
+    setInputChange(text);
+  };
+
+  const handleOpenModal: () => void = () => {
+    setOpenModal(true);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div style={{ width: "50%", padding: "20px" }}>
+        <AutoComplete
+          placeholder="Auto Complete"
+          onChange={handleChange}
+          value={inputChange}
+          name="autoComplete"
+          data={["one", "two", "three"]}
+        />
+      </div>
+      <Button onClick={handleOpenModal}>Press here</Button>
+      <OutlindedButton onClick={handleOpenModal}>Press here</OutlindedButton>
+      <Modal openModal={openModal} setOpenModal={setOpenModal}>
+        <>
+          <h3 style={{ marginBottom: "15px" }}>Modal</h3>
+          <div>This Is A Modal By SHOMANS</div>
+        </>
+      </Modal>
+    </>
   );
 }
 
