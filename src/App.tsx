@@ -23,7 +23,7 @@ function App() {
           onChange={handleChange}
           value={inputChange}
           name="autoComplete"
-          data={["one", "two", "three"]}
+          data={["one", "two", "three", "four"]}
         />
       </div>
       <Button onClick={handleOpenModal}>Press here</Button>
